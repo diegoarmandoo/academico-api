@@ -133,6 +133,8 @@ public class Aluno {
 		Os métodos são os comportamentos, as ações das classes, geralmente são representados com verbos
 	*/ 
 
+    //O métodos toString() é uma forma de polimorfismo dinâmico, que chamamos de sopreposição, já que esse método é definido na classe object
+	//O Polimorfismo Dinâmico acontece na herança, quando a subclasse sobrepõe o método original.
     @Override
     public String toString() {
         String detalhes = "";

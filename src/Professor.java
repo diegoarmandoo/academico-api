@@ -10,10 +10,79 @@ public class Professor {
 
     int matricula;
     String nome;
+    String sobrenome;
     int idade;
     char sexo;
     String cpf;
     String endereco;
+
+    //Gets e Sets
+
+    /*
+		Os Gets e Sets são métodos usados para manipular os atributos da classe ou do objeto
+		São importantes para alcançar o conceito de encapsulamento
+		Cada atributo geralmente possui o seu respectivo get e set, onde o get é usado para recuperar o valor armazenado no atributo e o set usado para armazernar um valor no atributo
+	*/
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getNomeCompleto(){
+        return this.nome + " " + this.sobrenome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
     //Construtores
 
@@ -26,9 +95,10 @@ public class Professor {
     public Professor() {
     }
 
-    public Professor(int matricula, String nome, int idade, char sexo, String cpf, String endereco) {
+    public Professor(int matricula, String nome,String sobrenome, int idade, char sexo, String cpf, String endereco) {
         this.matricula = matricula;
         this.nome = nome;
+        this.sobrenome = sobrenome;
         this.idade = idade;
         this.sexo = sexo;
         this.cpf = cpf;
@@ -42,10 +112,14 @@ public class Professor {
 	*/ 
 
     @Override
+    //O métodos toString() é uma forma de polimorfismo dinâmico, que chamamos de sopreposição, já que esse método é definido na classe object
+	//O Polimorfismo Dinâmico acontece na herança, quando a subclasse sobrepõe o método original.
     public String toString() {
         String detalhes = "";
         detalhes += "Matrícula: " + this.matricula + " \n";
         detalhes += "Nome: " + this.nome + " \n";
+        detalhes += "SobreNome: " + this.getSobrenome() + " \n";
+		detalhes += "NomeCompleto: " + this.getNomeCompleto() + " \n";
         detalhes += "Idade: " + this.idade + " \n";
         detalhes += "Sexo: " + this.sexo + " \n";
         detalhes += "CPF: " + this.cpf + " \n";
@@ -53,4 +127,15 @@ public class Professor {
         return detalhes;
     }
     
+    //O métodos equals() é uma forma de polimorfismo dinâmico, que chamamos de sopreposição, já que esse método é definido na classe object
+    //O Polimorfismo Dinâmico acontece na herança, quando a subclasse sobrepõe o método original.
+    @Override
+    public boolean equals(Object obj){
+        if (obj instanceof Professor){
+            Professor professor = (Professor) obj;
+            return this.matricula == professor.getMatricula();
+        }
+        return false;
+    }
+
 }
