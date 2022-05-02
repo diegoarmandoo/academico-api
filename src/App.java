@@ -25,10 +25,10 @@ public class App {
 		}
 
         //Imprimir os dados dos professores
-		for (Aluno aluno: alunos) {
+		for (Professor professor: professores) {
 			System.out.printf("------------------------------ \n");
 			System.out.printf("Professor \n");
-			System.out.printf(aluno.toString());
+			System.out.printf(professor.toString());
 		}
 
         System.out.println("----------------------------------------");
