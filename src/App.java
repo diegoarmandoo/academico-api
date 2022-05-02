@@ -1,19 +1,15 @@
 public class App {
     public static void main(String[] args) throws Exception {
         
-        int matricula = 1234;
-        String nome = "Diego Armando";
-        int idade = 35;
-        String curso = "Informática";
-        String naturalidade = "Sergipe";
-        boolean estaMatriculado = false;
+        Aluno aluno01 = new Aluno(1234,"Diego Armando", 35, "Informática", "Sergipe", true);
+        Aluno aluno02 = new Aluno(3456,"Pedro José", 28, "Comércio", "Riachão do Dantas", false);
 
-        System.out.println("Matricula: " + matricula);
-        System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        System.out.println("Curso: " + curso);
-        System.out.println("Naturalidade: " + naturalidade);
-        System.out.println("Está Matriculado? " + estaMatriculado);
+        System.out.println(aluno01.toString());
+        System.out.println(aluno02.toString());
+
+        Professor professor01 = new Professor(9999,"Maria Conceição", 48, 'F', "999.999.999-99", "Rua B - Bairro B");
+
+        System.out.println(professor01.toString());
 
     }
 }
