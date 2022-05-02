@@ -1,0 +1,33 @@
+@startuml Academico
+
+    Class App {
+        {static} void main()
+    }
+
+    Class Aluno {
+        int matricula
+        String nome
+        String sobrenome
+        int idade 
+        String curso 
+        String naturalidade
+        Boolean estaMatriculado
+
+        {static} int quantidadeAlunos
+        {static} String nomeInstituicao
+    }
+
+    Class Professor {
+        int matricula
+        String nome
+        String sobrenome
+        int idade 
+        char sexo 
+        String cpf
+        String endereco
+    }
+
+    App -- Aluno
+    App -- Professor
+
+@enduml
