@@ -8,6 +8,10 @@ public class App {
         //Permite a entrada de dados através do teclado
         Scanner ler = new Scanner(System.in);
 
+        System.out.printf("-----------------------\n");
+		System.out.printf("-Sistema Acadêmico API- \n");
+		System.out.printf("-----------------------\n");
+
         //Definir o atributo estático - Nome da Instituição
         System.out.printf("Informe o nome da instituição de ensino: \n");
         Aluno.setNomeInstituicao(ler.next());
@@ -39,6 +43,38 @@ public class App {
 
     }
 
+    public static Pessoa adicionarDadosPessoa(Pessoa pessoa){
+
+       //Permite a entrada de dados através do teclado
+		Scanner ler = new Scanner(System.in); 
+
+        System.out.printf("Informe a matrícula do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setMatricula(ler.nextInt());
+
+        System.out.printf("Informe a nome do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setNome(ler.next());
+
+        System.out.printf("Informe o sobrenome do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setSobrenome(ler.next());
+
+        System.out.printf("Informe a idade do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setIdade(ler.nextInt());
+
+        System.out.printf("Informe a naturalidade do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setNaturalidade(ler.next());
+
+        System.out.printf("Informe o Sexo do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setSexo(ler.next().charAt(0));
+
+        System.out.printf("Informe o CPF do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setCpf(ler.next());
+
+		System.out.printf("Informe o endereço do " + pessoa.getClass().getName() + ": \n");
+		pessoa.setEndereco(ler.next());
+
+        return pessoa;
+    }
+
     public static Aluno adicionarAluno(){
 
         //Permite a entrada de dados através do teclado
@@ -47,23 +83,11 @@ public class App {
         //Criar o aluno
         Aluno aluno = new Aluno();
 
-        System.out.printf("Informe a matrícula do aluno: \n");
-		aluno.setMatricula(ler.nextInt());
-
-        System.out.printf("Informe a nome do aluno: \n");
-		aluno.setNome(ler.next());
-
-        System.out.printf("Informe o sobrenome do aluno: \n");
-		aluno.setSobrenome(ler.next());
-
-        System.out.printf("Informe a idade do aluno: \n");
-		aluno.setIdade(ler.nextInt());
+        //DowsCast
+        aluno = (Aluno) adicionarDadosPessoa(aluno);
 
         System.out.printf("Informe o curso do aluno: \n");
 		aluno.setCurso(ler.next());
-
-        System.out.printf("Informe a naturalidade do aluno: \n");
-		aluno.setNaturalidade(ler.next());
 
 		System.out.printf("Informe se o aluno está matriculado: \n");
 		aluno.setEstaMatriculado(ler.nextBoolean());
@@ -80,7 +104,9 @@ public class App {
         //Cria uma variável local alunos do Tipo ArrayList de Aluno
         ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 
+        System.out.printf("----------------------------------------------------\n");
         System.out.printf("Informe a quantidade de alunos a serem cadastrados: \n");
+        System.out.printf("----------------------------------------------------\n");
 		int qtdAlunos = ler.nextInt();
 
         //Estrtura de Repetição - Adicionar Alunos
@@ -107,27 +133,9 @@ public class App {
         //Criar o aluno
         Professor professor = new Professor();
 
-        System.out.printf("Informe a matrícula do professor: \n");
-		professor.setMatricula(ler.nextInt());
-
-        System.out.printf("Informe a nome do professor: \n");
-		professor.setNome(ler.next());
-
-        System.out.printf("Informe o sobrenome do professor: \n");
-		professor.setSobrenome(ler.next());
-
-        System.out.printf("Informe a idade do professor: \n");
-		professor.setIdade(ler.nextInt());
-
-        System.out.printf("Informe o curso do professor: \n");
-		professor.setSexo(ler.next().charAt(0));
-
-        System.out.printf("Informe a naturalidade do professor: \n");
-		professor.setCpf(ler.next());
-
-		System.out.printf("Informe o endereço do professor: \n");
-		professor.setEndereco(ler.next());
-
+        //DownCast
+        professor = (Professor) adicionarDadosPessoa(professor);
+       
         return professor;
 
     }
@@ -140,7 +148,9 @@ public class App {
         //Cria uma variável local alunos do Tipo ArrayList de Aluno
         ArrayList<Professor> professores = new ArrayList<Professor>();
 
+        System.out.printf("---------------------------------------------------------\n");
         System.out.printf("Informe a quantidade de professores a serem cadastrados: \n");
+        System.out.printf("---------------------------------------------------------\n");
 		int qtdProfessores = ler.nextInt();
 
         //Estrtura de Repetição - Adicionar Alunos
