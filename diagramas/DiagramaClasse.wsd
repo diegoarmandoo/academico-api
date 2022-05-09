@@ -4,30 +4,33 @@
         {static} void main()
     }
 
-    Class Aluno {
+    abstract Class Pessoa {
         int matricula
         String nome
         String sobrenome
-        int idade 
-        String curso 
+        int idade
         String naturalidade
-        Boolean estaMatriculado
+        char sexo
+        String cpf
+        String endereco
 
+    }
+
+    Class Aluno {
+        String curso 
+        Boolean estaMatriculado
         {static} int quantidadeAlunos
         {static} String nomeInstituicao
     }
 
     Class Professor {
-        int matricula
-        String nome
-        String sobrenome
-        int idade 
-        char sexo 
-        String cpf
-        String endereco
+        
     }
 
     App -- Aluno
     App -- Professor
+
+    Pessoa <|-- Aluno
+    Pessoa <|-- Professor
 
 @enduml

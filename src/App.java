@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+    
     public static void main(String[] args) throws Exception {
         
         //Permite a entrada de dados através do teclado
