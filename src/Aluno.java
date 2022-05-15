@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Random;
+
 public class Aluno extends Pessoa {
 
     // Atributos de Instância ou do Objeto
@@ -13,6 +18,11 @@ public class Aluno extends Pessoa {
 
     String curso;
     boolean estaMatriculado;
+
+    //Associação entre classes através de atributos
+	//O atributo notas é uma arraylist (coleção) do tipo/classe Nota
+	//Associação Estrutural - Composição - A partir de atributo
+    List<Nota> notas = new ArrayList<Nota>();
 
     // Atributo estático ou atributo da classe
     static int quantidadeAlunos = 0;
@@ -61,6 +71,14 @@ public class Aluno extends Pessoa {
         Aluno.nomeInstituicao = nomeInstituicao;
     }
 
+    public List<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Nota> notas) {
+        this.notas = notas;
+    }
+    
     // Construtores
 
     /*
@@ -74,17 +92,20 @@ public class Aluno extends Pessoa {
      * métodos sobrecarregados
      */
 
+    
     public Aluno() {
         super();
         this.incrementaQuantidadeAlunos();
+        this.setMatricula(this.gerarMatricula());
     }
 
     public Aluno(int matricula, String nome, String sobrenome, int idade, String naturalidade, char sexo, String cpf,
-    String endereco, String curso, boolean estaMatriculado) {
+    Endereco endereco, String curso, boolean estaMatriculado) {
         super(matricula, nome, sobrenome, idade, naturalidade, sexo, cpf, endereco);
         this.curso = curso;
         this.estaMatriculado = estaMatriculado;
         this.incrementaQuantidadeAlunos();
+        this.setMatricula(this.gerarMatricula());
     }
 
     // Métodos
@@ -101,9 +122,10 @@ public class Aluno extends Pessoa {
     @Override
     public String toString() {
         String detalhes = "";
-        detalhes += super.toString() + " \n";
+        detalhes += super.toString();
         detalhes += "Curso: " + this.getCurso() + " \n";
         detalhes += "Esta Matriculado? " + this.isEstaMatriculado() + " \n";
+        detalhes += "Notas " + this.getNotas() + " \n";
         detalhes += "Nome da Instituição " + Aluno.getNomeInstituicao() + " \n";
         return detalhes;
     }
@@ -111,6 +133,20 @@ public class Aluno extends Pessoa {
     // Método que incrementa o atributo estático quantidadeAlunos
     private void incrementaQuantidadeAlunos() {
         ++Aluno.quantidadeAlunos;
+    }
+
+    // O método gerarMatricula é uma sobrescrita
+	// A implementação do método gerarMatricula na classe Aluno sobrescreve o método abstrato definido na classe Pessoa
+	// Associaçaõ Comportamental - Dependência da Classe Aluno com as classes Random e Calendar através de imports.
+	@Override
+	public int gerarMatricula() {
+        Random gerador = new Random(); //Instancia a classe Random
+        Calendar calendario = Calendar.getInstance(); //Recupera uma instancia da classe Calendar
+        int ano = calendario.get(Calendar.YEAR);  //Recupera o ano atual
+        int min = 1000;  //Define o valor mínimo para do valor aletório
+	    int max = 9999; //Define o valor máximo para do valor aletório
+        String matricula = String.valueOf(ano) + String.valueOf(gerador.nextInt(max - min + 1) + min);
+        return Integer.parseInt(matricula);  
     }
 
 }
