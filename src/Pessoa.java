@@ -18,8 +18,9 @@ public abstract class Pessoa {
     String naturalidade;
     char sexo;
     String cpf;
-    String endereco;
+    Endereco endereco; //Associação Estrtural - Agregação - A partir de atributo
 
+    
     // Gets e Sets
 
     /*
@@ -92,11 +93,11 @@ public abstract class Pessoa {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -117,7 +118,7 @@ public abstract class Pessoa {
     }
 
     public Pessoa(int matricula, String nome, String sobrenome, int idade, String naturalidade, char sexo, String cpf,
-            String endereco) {
+            Endereco endereco) {
         this.matricula = matricula;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -150,7 +151,7 @@ public abstract class Pessoa {
         detalhes += "Naturalidade: " + this.getNaturalidade() + " \n";
         detalhes += "Sexo: " + this.getSexo() + " \n";
         detalhes += "CPF: " + this.getCpf() + " \n";
-        detalhes += "Endereço: " + this.getEndereco() + " \n";
+        detalhes += this.getEndereco();
         return detalhes;
     }
 
@@ -166,5 +167,11 @@ public abstract class Pessoa {
         }
         return false;
     }
+
+
+    //Método abstrato - Sem implementação
+	//Usado para garantir que as classes que herdem de pessoa possuam uma implementação do gerarMatricula, 
+	//assim é possivel que cada classe que herde de pessoa implemente sua forma específica de gerar matricula
+    abstract int gerarMatricula();
 
 }
