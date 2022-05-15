@@ -4,6 +4,14 @@
         {static} void main()
     }
 
+    Class Endereco {
+        int CEP
+        String rua
+        String bairro
+        String cidade
+        String estado
+    }
+
     abstract Class Pessoa {
         int matricula
         String nome
@@ -12,19 +20,29 @@
         String naturalidade
         char sexo
         String cpf
-        String endereco
+        Endereco endereco
 
+        {abstract} int gerarMatricula()
+    }
+
+    Class Nota {
+        double valor
+        int peso
     }
 
     Class Aluno {
         String curso 
         Boolean estaMatriculado
+        List<Nota> notas
         {static} int quantidadeAlunos
         {static} String nomeInstituicao
+
+        int gerarMatricula()
     }
 
     Class Professor {
         
+        int gerarMatricula()
     }
 
     App -- Aluno
@@ -32,5 +50,7 @@
 
     Pessoa <|-- Aluno
     Pessoa <|-- Professor
+    Pessoa o-- "0..1" Endereco : contém >
+    Aluno *-- "2..4" Nota : contém >
 
 @enduml
