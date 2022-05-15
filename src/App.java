@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -22,14 +23,18 @@ public class App {
         //Criar Professores
         ArrayList<Professor> professores = adicionarListaProfessores();
 
-		//Imprimir os dados dos alunos
+		//Imprimir a lista de alunos
+        System.out.printf("------------------------------\n");
+        System.out.printf("Lista de Alunos \n");
 		for (Aluno aluno: alunos) {
 			System.out.printf("------------------------------ \n");
 			System.out.printf("Aluno \n");
 			System.out.printf(aluno.toString());
 		}
 
-        //Imprimir os dados dos professores
+        //Imprimir a lista de professores
+		System.out.printf("------------------------------\n");
+        System.out.printf("Lista de Professores \n");
 		for (Professor professor: professores) {
 			System.out.printf("------------------------------ \n");
 			System.out.printf("Professor \n");
@@ -43,13 +48,37 @@ public class App {
 
     }
 
+    public static Endereco criarEndereco(){
+
+        //Permite a entrada de dados através do teclado
+	    Scanner ler = new Scanner(System.in);
+
+        //Criar o endereco
+		Endereco endereco = new Endereco();
+
+        System.out.printf("Informe o CEP do Endereço: \n");
+		endereco.setCEP(ler.nextInt());
+
+		System.out.printf("Informe a Rua do Endereço: \n");
+		endereco.setRua(ler.next());
+
+		System.out.printf("Informe o Bairro do Endereço: \n");
+		endereco.setBairro(ler.next());
+
+	    System.out.printf("Informe a Cidade do Endereço: \n");
+		endereco.setCidade(ler.next());
+
+		System.out.printf("Informe o Estado do Endereço: \n");
+		endereco.setEstado(ler.next());
+
+        return endereco;
+
+    }
+
     public static Pessoa adicionarDadosPessoa(Pessoa pessoa){
 
        //Permite a entrada de dados através do teclado
 		Scanner ler = new Scanner(System.in); 
-
-        System.out.printf("Informe a matrícula do " + pessoa.getClass().getName() + ": \n");
-		pessoa.setMatricula(ler.nextInt());
 
         System.out.printf("Informe a nome do " + pessoa.getClass().getName() + ": \n");
 		pessoa.setNome(ler.next());
@@ -69,10 +98,65 @@ public class App {
         System.out.printf("Informe o CPF do " + pessoa.getClass().getName() + ": \n");
 		pessoa.setCpf(ler.next());
 
+		System.out.printf("-----------------------\n");    
 		System.out.printf("Informe o endereço do " + pessoa.getClass().getName() + ": \n");
-		pessoa.setEndereco(ler.next());
+
+        Endereco enderecoPessoa = criarEndereco();
+
+        pessoa.setEndereco(enderecoPessoa);
 
         return pessoa;
+    }
+
+    public static Nota adicionarNotaAluno(){
+
+        //Permite a entrada de dados através do teclado
+		Scanner ler = new Scanner(System.in); 
+
+        //Criar o endereco
+		Nota nota = new Nota();
+
+        System.out.printf("Informe o valor da nota do aluno: \n");
+		nota.setValor(ler.nextDouble());
+
+		System.out.printf("Informe o peso da nota do aluno: \n");
+		nota.setPeso(ler.nextInt());
+
+        return nota;
+
+    }
+
+    public static List<Nota> adicionarNotasAluno(){
+
+        //Permite a entrada de dados através do teclado
+		Scanner ler = new Scanner(System.in);
+
+        System.out.printf("----------------------------------------------------------------------------\n");
+        System.out.printf("Informe o valor 2, 3 ou 4 para definir a quantidde de notas: \n");
+        System.out.printf("Caso informe qualquer outro valor diferente será usado o padrão de 2 notas: \n");
+        System.out.printf("----------------------------------------------------------------------------\n");
+        int qtdNotas = ler.nextInt();
+
+        //Garante que a quantidade de notas esteja em conformidade com as restrições impostas no projeto
+        if ((qtdNotas != 2) && (qtdNotas !=3) && (qtdNotas !=4)){
+            qtdNotas = 2;    
+        }
+
+        //Cria uma variável local alunos do Tipo ArrayList de Aluno
+		List<Nota> notas = new ArrayList<Nota>();
+
+        //Estrtura de Repetição - Adicionar 4 notas
+        for (int i = 1; i <= qtdNotas; i++) {
+
+            System.out.printf("-------------------------------\n");
+            System.out.printf(i + "ª Nota \n");
+
+            notas.add(adicionarNotaAluno());
+        
+        } 
+
+        return notas;
+
     }
 
     public static Aluno adicionarAluno(){
@@ -91,6 +175,8 @@ public class App {
 
 		System.out.printf("Informe se o aluno está matriculado: \n");
 		aluno.setEstaMatriculado(ler.nextBoolean());
+
+        aluno.setNotas(adicionarNotasAluno());
 
         return aluno;
 
