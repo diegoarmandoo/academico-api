@@ -178,6 +178,10 @@ public class App {
 
         aluno.setNotas(adicionarNotasAluno());
 
+        //Calcular as médias e verificar a situação
+        aluno.calcularMediaAritimetica();
+        aluno.calcularMediaPonderada();
+
         return aluno;
 
     }
@@ -221,6 +225,12 @@ public class App {
 
         //DownCast
         professor = (Professor) adicionarDadosPessoa(professor);
+
+        System.out.printf("Informe o salário do professor: \n");
+		professor.setSalario(ler.nextDouble());
+
+        System.out.printf("Informe a carga horária do professor: \n");
+		professor.setCargaHoraria(ler.nextInt());
        
         return professor;
 
