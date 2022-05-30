@@ -32,15 +32,24 @@
 
     Class Aluno {
         String curso 
-        Boolean estaMatriculado
+        boolean estaMatriculado
+        double media
+        double mediaPonderada
+        boolean aprovado
+        String situacao
         List<Nota> notas
         {static} int quantidadeAlunos
         {static} String nomeInstituicao
 
         int gerarMatricula()
+        void calcularMediaAritimetica()
+        void calcularMediaPonderada()
+        void verificarSituaco()
     }
 
     Class Professor {
+        double salario
+        int cargaHoraria
         
         int gerarMatricula()
     }
