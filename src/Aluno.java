@@ -18,6 +18,10 @@ public class Aluno extends Pessoa {
 
     String curso;
     boolean estaMatriculado;
+    double media;
+    double mediaPonderada;
+    boolean aprovado;
+    String situacao;
 
     //Associação entre classes através de atributos
 	//O atributo notas é uma arraylist (coleção) do tipo/classe Nota
@@ -78,6 +82,38 @@ public class Aluno extends Pessoa {
     public void setNotas(List<Nota> notas) {
         this.notas = notas;
     }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public void setMedia(double media) {
+        this.media = media;
+    }
+
+    public double getMediaPonderada() {
+        return mediaPonderada;
+    }
+
+    public void setMediaPonderada(double mediaPonderada) {
+        this.mediaPonderada = mediaPonderada;
+    }
+
+    public boolean isAprovado() {
+        return aprovado;
+    }
+
+    public void setAprovado(boolean aprovado) {
+        this.aprovado = aprovado;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
     
     // Construtores
 
@@ -92,7 +128,6 @@ public class Aluno extends Pessoa {
      * métodos sobrecarregados
      */
 
-    
     public Aluno() {
         super();
         this.incrementaQuantidadeAlunos();
@@ -126,6 +161,10 @@ public class Aluno extends Pessoa {
         detalhes += "Curso: " + this.getCurso() + " \n";
         detalhes += "Esta Matriculado? " + this.isEstaMatriculado() + " \n";
         detalhes += "Notas " + this.getNotas() + " \n";
+        detalhes += "Média Aritimética: " + this.getMedia() + " \n";
+        detalhes += "Média Ponderada " + this.getMediaPonderada() + " \n";
+        detalhes += "Situação: " + this.getSituacao() + " \n";
+        detalhes += "Aprovado: " + this.isAprovado() + " \n";
         detalhes += "Nome da Instituição " + Aluno.getNomeInstituicao() + " \n";
         return detalhes;
     }
@@ -147,6 +186,40 @@ public class Aluno extends Pessoa {
 	    int max = 9999; //Define o valor máximo para do valor aletório
         String matricula = String.valueOf(ano) + String.valueOf(gerador.nextInt(max - min + 1) + min);
         return Integer.parseInt(matricula);  
+    }
+
+    private void verificarSituacao(){
+        if (this.getMedia() >= 7){
+            this.setSituacao("Aprovado");
+            this.setAprovado(true);
+        }
+        else if (this.getMedia() >= 5 && this.getMedia() < 7){
+            this.setSituacao("Recuperção");
+            this.setAprovado(false);
+        }
+        else {
+            this.setSituacao("Reprovado");
+            this.setAprovado(false);
+        }
+    }
+
+    public void calcularMediaAritimetica(){
+        double somatorio = 0;
+        for (Nota nota: this.getNotas()){
+            somatorio += nota.getValor();
+        }
+        this.setMedia(somatorio / this.getNotas().size());
+        this.verificarSituacao();
+    }
+
+    public void calcularMediaPonderada(){
+        double somatorio = 0;
+        double somatorioPesos = 0;
+        for (Nota nota: this.getNotas()){
+            somatorio += nota.getValor();
+            somatorioPesos += nota.getPeso();
+        }
+        this.setMediaPonderada(somatorio / somatorioPesos);
     }
 
 }
