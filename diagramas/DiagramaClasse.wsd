@@ -54,12 +54,43 @@
         int gerarMatricula()
     }
 
+    Class Disciplina {
+        String nome
+        int cargaHoraria
+    }
+
+    Class Sala {
+        int numero
+        int capacidade
+        boolean arCondicionado
+        boolean quadroBranco
+        boolean laboratorio
+    }
+
+    Class Turma {
+        String nome
+        String periodo
+        double media
+        Professor professor
+        Disciplina disciplina
+        List<Aluno> alunos
+        List<Sala> salas
+
+        void calcularMediaTurma()
+    }
+
     App -- Aluno
     App -- Professor
 
     Pessoa <|-- Aluno
     Pessoa <|-- Professor
     Pessoa o-- "0..1" Endereco : contém >
+
     Aluno *-- "2..4" Nota : contém >
+
+    Turma o-- "1..1" Professor : contém >
+    Turma o-- "1..1" Disciplina : contém >
+    Turma o-- "1..30" Aluno : contém >
+    Turma o-- "1..*" Sala : contém >
 
 @enduml
