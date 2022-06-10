@@ -3,7 +3,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements IProjeto,IEvento {
 
     // Atributos de Instância ou do Objeto
 
@@ -220,6 +220,26 @@ public class Aluno extends Pessoa {
             somatorioPesos += nota.getPeso();
         }
         this.setMediaPonderada(somatorio / somatorioPesos);
+    }
+
+    @Override
+    public void submeterProjetoExtensao() {
+        System.out.println("1- Aluno escolhe a area de atuação da extensão");
+        System.out.println("2- Aluno escreve o projeto de extensão");
+        System.out.println("3- O projeto é avaliado por professores");
+    }
+
+    @Override
+    public void submeterProjetoPesquisa() {
+        System.out.println("1- Aluno escolhe o tema da pesquisa");
+		System.out.println("2- Aluno escreve o projeto de pesquisa");
+		System.out.println("3- Projeto é avaliado por professores");
+		System.out.println("4- Aluno apresenta documentação para concorrer ao finciamento da pesquisa");  
+    }
+
+    @Override
+    public void inscrever() {
+        System.out.println("1- Inscrição de aluno no evento");    
     }
 
 }
