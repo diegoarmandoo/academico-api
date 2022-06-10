@@ -1,9 +1,5 @@
 @startuml Academico
 
-    Class App {
-        {static} void main()
-    }
-
     Class Endereco {
         int CEP
         String rua
@@ -79,8 +75,17 @@
         void calcularMediaTurma()
     }
 
-    App -- Aluno
-    App -- Professor
+    interface IProjeto #aliceblue ##[dotted]blue {
+
+        void submeterProjetoPesquisa()
+        void submeterProjetoExtensao()
+
+    }
+
+    interface IEvento #aliceblue ##[dotted]blue {
+
+        void inscrever()
+    }
 
     Pessoa <|-- Aluno
     Pessoa <|-- Professor
@@ -92,5 +97,10 @@
     Turma o-- "1..1" Disciplina : contém >
     Turma o-- "1..30" Aluno : contém >
     Turma o-- "1..*" Sala : contém >
+
+    IProjeto <|.. Professor
+    IProjeto <|.. Aluno
+    IEvento <|.. Professor
+    IEvento <|.. Aluno
 
 @enduml
