@@ -26,6 +26,20 @@ public class App {
 		System.out.println("----------------------------------------");
 	    System.out.println(turma .toString());
 
+        System.out.println("------------------------------------------");
+		System.out.println("Submissão de Projetos de Pesquisa, Extensão");
+	    System.out.println("------------------------------------------");
+        submeterProjeto(turma.getProfessor());
+        submeterProjeto(turma.getAlunos().get(0));
+        submeterProjeto(turma.getAlunos().get(1));
+
+        System.out.println("----------------------------------------");
+		System.out.println("Inscrição em Eventos");
+	    System.out.println("----------------------------------------");
+        inscricaoEmEvento(turma.getProfessor());
+        inscricaoEmEvento(turma.getAlunos().get(0));
+        inscricaoEmEvento(turma.getAlunos().get(1));
+
         System.out.println("----------------------------------------");
         System.out.println("Nome da Instituição: " + Aluno.getNomeInstituicao());
         System.out.println("Quantidade de Alunos: " + Aluno.getQuantidadeAlunos());
@@ -357,5 +371,22 @@ public class App {
         return turma;
 
     }    
+
+    //Uso de interface para fazer upcasting no parâmetro projeto
+    //O parametro projeto do método submeterProjeto aceita qualquer classe que implemente a interface IProjeto
+    public static void submeterProjeto(IProjeto projeto) {
+        System.out.println("---------------------------------------------");
+        System.out.println("Prepara a submissão de um projeto de Pesquisa");
+        projeto.submeterProjetoPesquisa();
+        System.out.println("---------------------------------------------");
+        System.out.println("Prepara a submissão de um projeto de Extensão");
+        projeto.submeterProjetoExtensao();
+    }
+
+    public static void inscricaoEmEvento(IEvento evento) {
+        System.out.println("---------------------------------------------");
+        System.out.println("Prepara a inscrição no evento");
+        evento.inscrever();
+    }
 
 }
