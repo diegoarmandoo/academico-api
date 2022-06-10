@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Professor extends Pessoa {
+public class Professor extends Pessoa implements IProjeto,IEvento {
 
     // Atributos de Instância ou do Objeto
 		
@@ -55,5 +55,30 @@ public class Professor extends Pessoa {
         detalhes += "Carga Horária " + this.getCargaHoraria() + " \n";
         return detalhes;
     }
+
+    @Override
+    public void submeterProjetoExtensao() {
+        System.out.println("1- Professor escolhe a area de atuação da extensão");
+		System.out.println("2- Professor escreve o projeto de extensão");
+		System.out.println("3- Professor seleciona alunos para o projeto, se necessário");
+		System.out.println("4- Projeto é avaliado pela setor de extensão da instituição");
+    }
+
+    @Override
+    public void submeterProjetoPesquisa() {
+        System.out.println("1- Professor escolhe a area de pesquisa");
+		System.out.println("2- Professor escreve o projeto de pesquisa");
+		System.out.println("3- Professor apresenta documentação para concorrer ao finciamento da pesquisa");
+		System.out.println("4- Professor seleciona alunos para o projeto, se necessário");
+	    System.out.println("5- Projeto é avaliado pela setor de pesquisa da instituição");
+    }
+
+    @Override
+    public void inscrever() {
+        System.out.println("1 -Inscrição de professor no evento");
+		System.out.println("2- Gerar boleto de pagamento para o Professor");
+    }
+
+    
 
 }
