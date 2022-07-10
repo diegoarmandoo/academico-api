@@ -16,21 +16,21 @@ public class Aluno extends Pessoa implements IProjeto,IEvento {
      * boolean, String ou outras classes
      */
 
-    String curso;
-    boolean estaMatriculado;
-    double media;
-    double mediaPonderada;
-    boolean aprovado;
-    String situacao;
+    private String curso;
+    private boolean estaMatriculado;
+    private double media;
+    private double mediaPonderada;
+    private boolean aprovado;
+    private String situacao;
 
     //Associação entre classes através de atributos
 	//O atributo notas é uma arraylist (coleção) do tipo/classe Nota
 	//Associação Estrutural - Composição - A partir de atributo
-    List<Nota> notas = new ArrayList<Nota>();
+    private List<Nota> notas = new ArrayList<Nota>();
 
     // Atributo estático ou atributo da classe
-    static int quantidadeAlunos = 0;
-    static String nomeInstituicao = "IFS";
+    private static int quantidadeAlunos = 0;
+    private static String nomeInstituicao = "IFS";
 
     // Gets e Sets
 

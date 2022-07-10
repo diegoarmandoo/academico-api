@@ -2,11 +2,11 @@ public class Sala {
 
     // Atributos de Instância ou do Objeto
 
-    int numero;
-    int capacidade;
-    boolean arCondicionado;
-    boolean quadroBranco;
-    boolean laboratorio;
+    private int numero;
+    private int capacidade;
+    private boolean arCondicionado;
+    private boolean quadroBranco;
+    private boolean laboratorio;
 
     //Gets e Sets
 

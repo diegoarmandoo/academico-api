@@ -11,14 +11,14 @@ public abstract class Pessoa {
      * boolean, String ou outras classes
      */
 
-    int matricula;
-    String nome;
-    String sobrenome;
-    int idade;
-    String naturalidade;
-    char sexo;
-    String cpf;
-    Endereco endereco; //Associação Estrtural - Agregação - A partir de atributo
+    private int matricula;
+    private String nome;
+    private String sobrenome;
+    private int idade;
+    private String naturalidade;
+    private char sexo;
+    private String cpf;
+    private Endereco endereco; //Associação Estrtural - Agregação - A partir de atributo
 
     
     // Gets e Sets

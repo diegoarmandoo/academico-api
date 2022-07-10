@@ -2,11 +2,11 @@ public class Endereco {
 
     // Atributos de Instância ou do Objeto
 
-    int CEP;
-    String rua;
-    String bairro;
-    String cidade;
-    String estado;
+    private int CEP;
+    private String rua;
+    private String bairro;
+    private String cidade;
+    private String estado;
 
     // Gets e Sets
 

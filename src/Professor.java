@@ -4,8 +4,8 @@ public class Professor extends Pessoa implements IProjeto,IEvento {
 
     // Atributos de Instância ou do Objeto
 		
-    double salario;
-    int cargaHoraria;
+    private double salario;
+    private int cargaHoraria;
     
     // Gets e Sets
 

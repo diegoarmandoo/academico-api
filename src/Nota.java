@@ -2,8 +2,8 @@ public class Nota {
 
     // Atributos de Instância ou do Objeto
 
-    double valor;
-    int peso;
+    private double valor;
+    private int peso;
 
     // Gets e Sets
 

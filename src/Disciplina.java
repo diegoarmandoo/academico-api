@@ -2,8 +2,8 @@ public class Disciplina {
 
     // Atributos de Instância ou do Objeto
 
-    String nome;
-    int cargaHoraria;
+    private String nome;
+    private int cargaHoraria;
 
     //Gets e Sets
 
