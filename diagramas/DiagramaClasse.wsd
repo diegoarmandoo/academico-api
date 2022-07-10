@@ -1,90 +1,90 @@
 @startuml Academico
 
     Class Endereco {
-        int CEP
-        String rua
-        String bairro
-        String cidade
-        String estado
+        - int CEP
+        - String rua
+        - String bairro
+        - String cidade
+        - String estado
     }
 
     abstract Class Pessoa {
-        int matricula
-        String nome
-        String sobrenome
-        int idade
-        String naturalidade
-        char sexo
-        String cpf
-        Endereco endereco
+        - int matricula
+        - String nome
+        - String sobrenome
+        - int idade
+        - String naturalidade
+        - char sexo
+        - String cpf
+        - Endereco endereco
 
         {abstract} int gerarMatricula()
     }
 
     Class Nota {
-        double valor
-        int peso
+        - double valor
+        - int peso
     }
 
     Class Aluno {
-        String curso 
-        boolean estaMatriculado
-        double media
-        double mediaPonderada
-        boolean aprovado
-        String situacao
-        List<Nota> notas
-        {static} int quantidadeAlunos
-        {static} String nomeInstituicao
+        - String curso 
+        - boolean estaMatriculado
+        - double media
+        - double mediaPonderada
+        - boolean aprovado
+        - String situacao
+        - List<Nota> notas
+        - {static} int quantidadeAlunos
+        - {static} String nomeInstituicao
 
-        int gerarMatricula()
-        void calcularMediaAritimetica()
-        void calcularMediaPonderada()
-        void verificarSituaco()
+        + int gerarMatricula()
+        + void calcularMediaAritimetica()
+        + void calcularMediaPonderada()
+        - void verificarSituaco()
     }
 
     Class Professor {
-        double salario
-        int cargaHoraria
+        - double salario
+        - int cargaHoraria
         
-        int gerarMatricula()
+        + int gerarMatricula()
     }
 
     Class Disciplina {
-        String nome
-        int cargaHoraria
+        - String nome
+        - int cargaHoraria
     }
 
     Class Sala {
-        int numero
-        int capacidade
-        boolean arCondicionado
-        boolean quadroBranco
-        boolean laboratorio
+        - int numero
+        - int capacidade
+        - boolean arCondicionado
+        - boolean quadroBranco
+        - boolean laboratorio
     }
 
     Class Turma {
-        String nome
-        String periodo
-        double media
-        Professor professor
-        Disciplina disciplina
-        List<Aluno> alunos
-        List<Sala> salas
+        - String nome
+        - String periodo
+        - double media
+        - Professor professor
+        - Disciplina disciplina
+        - List<Aluno> alunos
+        - List<Sala> salas
 
-        void calcularMediaTurma()
+        + void calcularMediaTurma()
     }
 
     interface IProjeto #aliceblue ##[dotted]blue {
 
-        void submeterProjetoPesquisa()
-        void submeterProjetoExtensao()
+        + void submeterProjetoPesquisa()
+        + void submeterProjetoExtensao()
 
     }
 
     interface IEvento #aliceblue ##[dotted]blue {
 
-        void inscrever()
+        + void inscrever()
     }
 
     Pessoa <|-- Aluno
