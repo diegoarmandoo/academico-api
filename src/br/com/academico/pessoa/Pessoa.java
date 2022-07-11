@@ -1,3 +1,6 @@
+package br.com.academico.pessoa;
+import br.com.academico.endereco.Endereco;
+
 public abstract class Pessoa {
 
     // Atributos de Instância ou do Objeto
@@ -172,6 +175,6 @@ public abstract class Pessoa {
     //Método abstrato - Sem implementação
 	//Usado para garantir que as classes que herdem de pessoa possuam uma implementação do gerarMatricula, 
 	//assim é possivel que cada classe que herde de pessoa implemente sua forma específica de gerar matricula
-    abstract int gerarMatricula();
+    public abstract int gerarMatricula();
 
 }
