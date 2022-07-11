@@ -196,15 +196,15 @@ public class Aluno extends Pessoa implements IProjeto,IEvento {
 
     private void verificarSituacao(){
         if (this.getMedia() >= 7){
-            this.setSituacao("Aprovado");
+            this.setSituacao(SituacaoAluno.Aprovado.toString());
             this.setAprovado(true);
         }
         else if (this.getMedia() >= 5 && this.getMedia() < 7){
-            this.setSituacao("Recuperção");
+            this.setSituacao(SituacaoAluno.Recuperacao.toString());
             this.setAprovado(false);
         }
         else {
-            this.setSituacao("Reprovado");
+            this.setSituacao(SituacaoAluno.Reprovado.toString());
             this.setAprovado(false);
         }
     }
