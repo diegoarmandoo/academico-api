@@ -10,6 +10,7 @@
 
     package br.com.academico.aluno <<Node>> {
 		class Aluno
+        enum SituacaoAluno
         Aluno *-- Nota
     }
 
