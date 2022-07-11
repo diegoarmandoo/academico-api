@@ -1,3 +1,5 @@
+package br.com.academico.disciplina;
+
 public class Disciplina {
 
     // Atributos de Instância ou do Objeto
