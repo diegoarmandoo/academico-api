@@ -2,6 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.academico.aluno.Aluno;
+import br.com.academico.aluno.Nota;
+import br.com.academico.disciplina.Disciplina;
+import br.com.academico.endereco.Endereco;
+import br.com.academico.evento.IEvento;
+import br.com.academico.pessoa.Pessoa;
+import br.com.academico.professor.Professor;
+import br.com.academico.projeto.IProjeto;
+import br.com.academico.sala.Sala;
+import br.com.academico.turma.Turma;
+
 public class App {
 
     public static void main(String[] args) throws Exception {
@@ -78,26 +89,26 @@ public class App {
         // Permite a entrada de dados através do teclado
         Scanner ler = new Scanner(System.in);
 
-        System.out.printf("Informe a nome do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe o nome do " + pessoa.getClass().getSimpleName() + ": \n");
         pessoa.setNome(ler.next());
 
-        System.out.printf("Informe o sobrenome do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe o sobrenome do " + pessoa.getClass().getSimpleName() + ": \n");
         pessoa.setSobrenome(ler.next());
 
-        System.out.printf("Informe a idade do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe a idade do " + pessoa.getClass().getSimpleName() + ": \n");
         pessoa.setIdade(ler.nextInt());
 
-        System.out.printf("Informe a naturalidade do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe a naturalidade do " + pessoa.getClass().getSimpleName() + ": \n");
         pessoa.setNaturalidade(ler.next());
 
-        System.out.printf("Informe o Sexo do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe o Sexo do " + pessoa.getClass().getSimpleName() + ": \n");
         pessoa.setSexo(ler.next().charAt(0));
 
-        System.out.printf("Informe o CPF do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe o CPF do " + pessoa.getClass().getSimpleName() + ": \n");
         pessoa.setCpf(ler.next());
 
         System.out.printf("-----------------------\n");
-        System.out.printf("Informe o endereço do " + pessoa.getClass().getName() + ": \n");
+        System.out.printf("Informe o endereço do " + pessoa.getClass().getSimpleName() + ": \n");
 
         Endereco enderecoPessoa = criarEndereco();
 
