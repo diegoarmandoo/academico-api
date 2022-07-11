@@ -1,3 +1,5 @@
+package br.com.academico.endereco;
+
 public class Endereco {
 
     // Atributos de Instância ou do Objeto
