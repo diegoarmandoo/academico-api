@@ -1,7 +1,13 @@
+package br.com.academico.aluno;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+
+import br.com.academico.endereco.Endereco;
+import br.com.academico.evento.IEvento;
+import br.com.academico.pessoa.Pessoa;
+import br.com.academico.projeto.IProjeto;
 
 public class Aluno extends Pessoa implements IProjeto,IEvento {
 
