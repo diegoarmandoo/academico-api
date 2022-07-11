@@ -1,6 +1,8 @@
 package br.com.academico.aluno;
 
-public class Nota {
+import java.io.Serializable;
+
+public class Nota implements Serializable {
 
     // Atributos de Instância ou do Objeto
 

@@ -1,4 +1,5 @@
 package br.com.academico.turma;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import br.com.academico.disciplina.Disciplina;
 import br.com.academico.professor.Professor;
 import br.com.academico.sala.Sala;
 
-public class Turma {
+public class Turma implements Serializable {
 
     // Atributos de Instância ou do Objeto
 

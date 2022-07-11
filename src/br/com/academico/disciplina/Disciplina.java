@@ -1,6 +1,8 @@
 package br.com.academico.disciplina;
 
-public class Disciplina {
+import java.io.Serializable;
+
+public class Disciplina implements Serializable {
 
     // Atributos de Instância ou do Objeto
 

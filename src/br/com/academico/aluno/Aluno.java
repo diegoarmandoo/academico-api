@@ -1,4 +1,5 @@
 package br.com.academico.aluno;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -9,7 +10,7 @@ import br.com.academico.evento.IEvento;
 import br.com.academico.pessoa.Pessoa;
 import br.com.academico.projeto.IProjeto;
 
-public class Aluno extends Pessoa implements IProjeto,IEvento {
+public class Aluno extends Pessoa implements IProjeto,IEvento,Serializable {
 
     // Atributos de Instância ou do Objeto
 

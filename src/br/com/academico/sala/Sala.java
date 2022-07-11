@@ -1,6 +1,8 @@
 package br.com.academico.sala;
 
-public class Sala {
+import java.io.Serializable;
+
+public class Sala implements Serializable {
 
     // Atributos de Instância ou do Objeto
 

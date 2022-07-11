@@ -1,6 +1,8 @@
 package br.com.academico.endereco;
 
-public class Endereco {
+import java.io.Serializable;
+
+public class Endereco implements Serializable {
 
     // Atributos de Instância ou do Objeto
 

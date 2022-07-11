@@ -1,7 +1,9 @@
 package br.com.academico.pessoa;
+import java.io.Serializable;
+
 import br.com.academico.endereco.Endereco;
 
-public abstract class Pessoa {
+public abstract class Pessoa implements Serializable {
 
     // Atributos de Instância ou do Objeto
 
