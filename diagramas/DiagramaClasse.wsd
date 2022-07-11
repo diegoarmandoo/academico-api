@@ -87,6 +87,12 @@
         + void inscrever()
     }
 
+    enum SituacaoAluno {
+        Aprovado
+        Recuperacao
+        Reprovado
+    }
+
     Pessoa <|-- Aluno
     Pessoa <|-- Professor
     Pessoa o-- "0..1" Endereco : contém >
