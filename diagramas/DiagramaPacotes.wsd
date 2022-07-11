@@ -47,6 +47,11 @@
         Turma o-- Sala
         Turma o-- Disciplina
         Turma o-- Aluno
-    }    
+    }
+
+    package br.com.academico.serializacao <<Node>> {
+        class CriarArquivo
+        class LerArquivo
+    }
 
 @enduml
