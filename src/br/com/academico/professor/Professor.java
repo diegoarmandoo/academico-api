@@ -1,4 +1,9 @@
+package br.com.academico.professor;
 import java.util.Random;
+
+import br.com.academico.evento.IEvento;
+import br.com.academico.pessoa.Pessoa;
+import br.com.academico.projeto.IProjeto;
 
 public class Professor extends Pessoa implements IProjeto,IEvento {
 
