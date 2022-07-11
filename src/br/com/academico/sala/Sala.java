@@ -1,3 +1,5 @@
+package br.com.academico.sala;
+
 public class Sala {
 
     // Atributos de Instância ou do Objeto
