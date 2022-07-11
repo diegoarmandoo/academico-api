@@ -1,0 +1,51 @@
+@startuml Academico
+
+    package br.com.academico.endereco <<Node>> {
+        Class Endereco
+    }
+
+    package br.com.academico.professor <<Node>> {
+        class Professor
+    }
+
+    package br.com.academico.aluno <<Node>> {
+		class Aluno
+        Aluno *-- Nota
+    }
+
+    package br.com.academico.pessoa <<Node>> {
+		class Pessoa
+        Pessoa o-- Endereco
+        Pessoa <|-- Aluno
+		Pessoa <|-- Professor
+    }
+
+    package br.com.academico.projeto <<Node>> {
+		interface IProjeto
+        IProjeto <|.. Professor
+        IProjeto <|.. Aluno
+    }
+
+    package br.com.academico.evento <<Node>> {
+	    interface IEvento
+        IEvento <|.. Professor
+        IEvento <|.. Aluno
+    }
+
+    package br.com.academico.sala <<Node>> {
+		class Sala			   
+	}
+
+    package br.com.academico.disciplina <<Node>> {
+	    class Disciplina
+	}
+
+    package br.com.academico.turma <<Node>> {
+		class Turma
+        Turma o-- Professor
+        Turma o-- Sala
+        Turma o-- Disciplina
+        Turma o-- Aluno
+    }    
+
+@enduml
