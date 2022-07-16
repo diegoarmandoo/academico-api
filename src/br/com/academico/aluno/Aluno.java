@@ -223,7 +223,7 @@ public class Aluno extends Pessoa implements IProjeto,IEvento,Serializable {
         double somatorio = 0;
         double somatorioPesos = 0;
         for (Nota nota: this.getNotas()){
-            somatorio += nota.getValor();
+            somatorio += nota.getValor() * nota.getPeso();
             somatorioPesos += nota.getPeso();
         }
         this.setMediaPonderada(somatorio / somatorioPesos);
