@@ -184,7 +184,13 @@ public class App {
         aluno.setCurso(ler.next());
 
         System.out.printf("Informe se o aluno está matriculado: \n");
-        aluno.setEstaMatriculado(ler.nextBoolean());
+        try {
+            aluno.setEstaMatriculado(ler.nextBoolean());
+        }
+        catch (Exception ex) {
+            aluno.setEstaMatriculado(false);
+        }
+       
 
         aluno.setNotas(adicionarNotasAluno());
 
