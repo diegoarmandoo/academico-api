@@ -21,6 +21,7 @@ public class LerArquivo {
             input = new ObjectInputStream(Files.newInputStream(Paths.get(nomeArquivo)));
         } catch (IOException ioException) {
             System.err.println("Erro ao abrir o arquivo.");
+            System.err.println(ioException.toString());
             System.exit(1);
         }
     }

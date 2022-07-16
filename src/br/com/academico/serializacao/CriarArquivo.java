@@ -86,7 +86,8 @@ public class CriarArquivo {
         }
     }
 
-    public static void main(String[] args) {	
+    public static void main(String[] args) {
+        //Exemplo de código defensivo, usando a técnica de separação de cada ação em um método diferente	
         abrirArquivo();
         adicionarRegistro();
         fecharArquivo();
