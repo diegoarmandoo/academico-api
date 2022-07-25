@@ -6,6 +6,7 @@ public class Endereco implements Serializable {
 
     // Atributos de Instância ou do Objeto
 
+    private int id;
     private int CEP;
     private String rua;
     private String bairro;
@@ -13,6 +14,14 @@ public class Endereco implements Serializable {
     private String estado;
 
     // Gets e Sets
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getCEP() {
         return CEP;
@@ -72,6 +81,7 @@ public class Endereco implements Serializable {
     @Override
     public String toString() {
         String detalhes = "";
+        detalhes += "Id: " + this.getId() + " \n";
 		detalhes += "CEP: " + this.getCEP() + " \n";
 		detalhes += "Rua: " + this.getRua() + " \n";
 		detalhes += "Bairro: " + this.getBairro() + " \n";
