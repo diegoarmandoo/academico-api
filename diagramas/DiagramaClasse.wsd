@@ -1,6 +1,7 @@
 @startuml Academico
 
     Class Endereco {
+        - int id
         - int CEP
         - String rua
         - String bairro
