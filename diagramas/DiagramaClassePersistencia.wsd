@@ -1,0 +1,94 @@
+@startuml AcademicoPersistencia
+
+    Interface IFabricaConexoes <<interface>> #aliceblue ##[dotted]blue {
+		+ Connection obterConexao()
+	}
+
+    class FabricaConexoesPostgres {
+        - {static} String DriverJDBC
+        - {static} String usuario
+        - {static} String senha
+        - {static} String URL
+
+        + Connection obterConexao()
+    }
+
+    Class org.postgresql.Driver
+
+    IFabricaConexoes "implementa" <|.. FabricaConexoesPostgres
+
+    FabricaConexoesPostgres "encapsula" ..|>  org.postgresql.Driver
+
+    Class Endereco
+
+    Interface IEnderecoDAO <<interface>> #aliceblue ##[dotted]blue {
+        + int criar(Endereco endereco)
+        + Endereco recuperar(int id)
+        + boolean atualizar(Endereco endereco)
+        + boolean excluir(Endereco endereco)
+        + List<Endereco> listar()
+    }
+
+    class EnderecoDAOPostgres {
+        - Connection conexao
+
+        + int criar(Endereco endereco)
+        + Endereco recuperar(int id)
+        + boolean atualizar(Endereco endereco)
+        + boolean excluir(Endereco endereco)
+        + List<Endereco> listar()
+    }
+
+    IEnderecoDAO "implementa" <|.. EnderecoDAOPostgres
+    IEnderecoDAO --> "usa" Endereco
+    EnderecoDAOPostgres --> "usa" FabricaConexoesPostgres
+
+    Class Aluno
+
+    Interface IAlunoDAO <<interface>> #aliceblue ##[dotted]blue {
+        + int criar(Aluno aluno)
+        + Aluno recuperar(int matricula)
+        + boolean atualizar(Aluno aluno)
+        + boolean excluir(Aluno aluno)
+        + List<Aluno> listar()
+    }
+
+    class AlunoDAOPostgres {
+        - Connection conexao
+
+        + int criar(Aluno aluno)
+        + Aluno recuperar(int matricula)
+        + boolean atualizar(Aluno aluno)
+        + boolean excluir(Aluno aluno)
+        + List<Aluno> listar()
+    }
+
+    IAlunoDAO "implementa" <|.. AlunoDAOPostgres
+	IAlunoDAO --> "usa" Aluno
+	AlunoDAOPostgres --> "usa" FabricaConexoesPostgres
+
+    Class Professor
+
+    Interface IProfessorDAO <<interface>> #aliceblue ##[dotted]blue {
+        + int criar(Professor professor)
+        + Professor recuperar(int matricula)
+        + boolean atualizar(Professor professor)
+        + boolean excluir(Professor professor)
+        + List<Professor> listar()
+    }
+
+    class ProfessorDAOPostgres {
+        - Connection conexao
+
+        + int criar(Professor professor)
+        + Professor recuperar(int matricula)
+        + boolean atualizar(Professor professor)
+        + boolean excluir(Professor professor)
+        + List<Professor> listar()
+    }
+
+    IProfessorDAO "implementa" <|.. ProfessorDAOPostgres
+	IProfessorDAO --> "usa" Professor
+	ProfessorDAOPostgres --> "usa" FabricaConexoesPostgres
+
+@enduml AcademicoPersistencia
