@@ -6,10 +6,20 @@ public class Nota implements Serializable {
 
     // Atributos de Instância ou do Objeto
 
+    private int id;
     private double valor;
     private int peso;
+    private int matricula;
 
     // Gets e Sets
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public double getValor() {
         return valor;
@@ -25,6 +35,14 @@ public class Nota implements Serializable {
 
     public void setPeso(int peso) {
         this.peso = peso;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
 
     // Construtores
