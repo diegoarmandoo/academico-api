@@ -88,7 +88,7 @@ public class EnderecoDAOPostgres implements IEnderecoDAO {
             stmt.setString(2, endereco.getRua());
             stmt.setString(3, endereco.getBairro());
             stmt.setString(4, endereco.getCidade());
-            stmt.setString(5, endereco.getBairro());
+            stmt.setString(5, endereco.getEstado());
             stmt.setInt(6, endereco.getId());
             stmt.executeUpdate();
             return true;
